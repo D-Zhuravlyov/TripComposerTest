@@ -1,9 +1,12 @@
 package tripComposer.model;
 
-/**
- * Created by D.Zh. on 03.11.15.
- */
+import javax.persistence.*;
 
+/**
+ * Created by D.Zh.
+ */
+@Entity
+@Table(name = "City")
 public class City {
 
     private int nId;
@@ -20,7 +23,9 @@ public class City {
         this.sCityName = sCityName;
         this.oCountry = oCountry;
     }
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "city_id", unique = true, nullable = false)
     public int getnId() {
         return nId;
     }
@@ -29,6 +34,7 @@ public class City {
         this.nId = nId;
     }
 
+    @Column(name = "city_name")
     public String getsCityName() {
         return sCityName;
     }
@@ -37,6 +43,8 @@ public class City {
         this.sCityName = sCityName;
     }
 
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "country_id")
     public Country getoCountry() {
         return oCountry;
     }

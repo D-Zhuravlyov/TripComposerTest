@@ -1,10 +1,13 @@
 package tripComposer.model;
 
+import javax.persistence.*;
 import java.util.List;
 
 /**
- * Created by D.Zh. on 03.11.15.
+ * Created by D.Zh.
  */
+@Entity
+@Table(name = "Country")
 public class Country {
 
     private int nId;
@@ -23,6 +26,9 @@ public class Country {
         this.sCountryISOCode = sCountryISOCode;
     }
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "country_id", unique = true, nullable = false)
     public int getnId() {
         return nId;
     }
@@ -31,6 +37,7 @@ public class Country {
         this.nId = nId;
     }
 
+    @Column(name = "country_name")
     public String getsCountryName() {
         return sCountryName;
     }
@@ -39,6 +46,7 @@ public class Country {
         this.sCountryName = sCountryName;
     }
 
+    @Column(name = "county_ISO_code")
     public String getsCountryISOCode() {
         return sCountryISOCode;
     }
@@ -47,6 +55,7 @@ public class Country {
         this.sCountryISOCode = sCountryISOCode;
     }
 
+    @OneToMany(mappedBy = "oCountry", fetch = FetchType.LAZY)
     public List<City> getAoCityList() {
         return aoCityList;
     }
@@ -63,4 +72,19 @@ public class Country {
                 ", aoCityList= " + aoCityList +
                 '}';
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Country country = (Country) o;
+
+        if (sCountryName != null ? !sCountryName.equals(country.sCountryName) : country.sCountryName != null)
+            return false;
+        return !(sCountryISOCode != null ? !sCountryISOCode.equals(country.sCountryISOCode) : country.sCountryISOCode != null);
+
+    }
+
+
 }

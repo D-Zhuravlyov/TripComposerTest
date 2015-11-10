@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 .idea/libraries/Maven__aopalliance_aopalliance_1_0.xml
 
@@ -11,3 +12,50 @@ TripComposerTest.iml
 TripComposerTest.iml
 
 TripComposerTest.iml
+=======
+# Created by .ignore support plugin (hsz.mobi)
+.idea/.name
+
+target/test-classes/test-app-context.xml
+
+target/classes/tripComposer/model/Country.class
+
+target/classes/tripComposer/exceptions/DAOExceptions/DAOException.class
+
+target/classes/tripComposer/exceptions/DAOExceptions/CountryDAOException.class
+
+target/classes/tripComposer/dao/JPACountryDAO.class
+
+target/classes/tripComposer/dao/JPACityDAO.class
+
+target/classes/tripComposer/dao/CityDAO.class
+
+target/classes/tripComposer/dao/CountryDAO.class
+
+target/classes/tripComposer/exceptions/DAOExceptions/CityDAOException.class
+
+target/classes/properties/init.sql
+
+target/classes/properties/hibernate.cfg.xml
+
+target/classes/properties/db.properties
+
+.idea/workspace.xml
+
+src/main/resources/properties/db.properties
+
+.idea/uiDesigner.xml
+
+.idea/sqldialects.xml
+
+.idea/modules.xml
+
+.idea/libraries/Maven__xml_apis_xml_apis_1_0_b2.xml
+
+.idea/libraries/Maven__org_springframework_spring_webmvc_4_2_2_RELEASE.xml
+
+.idea/libraries/Maven__org_springframework_spring_tx_4_2_2_RELEASE.xml
+
+target
+.idea
+>>>>>>> dao-branch
