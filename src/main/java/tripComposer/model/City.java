@@ -1,5 +1,7 @@
 package tripComposer.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import javax.persistence.*;
 
 /**
@@ -11,6 +13,7 @@ public class City {
 
     private int nId;
 
+    @JsonProperty("cityName")
     private String sCityName;
 
     private Country oCountry;
@@ -23,6 +26,7 @@ public class City {
         this.sCityName = sCityName;
         this.oCountry = oCountry;
     }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "city_id", unique = true, nullable = false)

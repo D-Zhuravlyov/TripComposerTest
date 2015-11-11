@@ -1,5 +1,7 @@
 package tripComposer.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -12,10 +14,13 @@ public class Country {
 
     private int nId;
 
+    @JsonProperty("countryName")
     private String sCountryName;
 
+    @JsonProperty("countryISOCode")
     private String sCountryISOCode;
 
+    @JsonProperty("cities")
     private List<City> aoCityList;
 
     public Country() {
@@ -72,19 +77,5 @@ public class Country {
                 ", aoCityList= " + aoCityList +
                 '}';
     }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        Country country = (Country) o;
-
-        if (sCountryName != null ? !sCountryName.equals(country.sCountryName) : country.sCountryName != null)
-            return false;
-        return !(sCountryISOCode != null ? !sCountryISOCode.equals(country.sCountryISOCode) : country.sCountryISOCode != null);
-
-    }
-
-
 }
+
