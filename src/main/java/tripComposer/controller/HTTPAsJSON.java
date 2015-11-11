@@ -56,6 +56,10 @@ public class HTTPAsJSON {
         mapper =new ObjectMapper();
     }
 
+    /*
+    Method makes http request to postUrl server in JSON format.
+    Request is built from tripComposer.model.POSTKey object.
+     */
     public void doPOST(String postUrl) throws ControllerException {
         HttpClient httpClient = HttpClientBuilder.create().build();
         HttpPost post = new HttpPost(postUrl);
@@ -84,6 +88,10 @@ public class HTTPAsJSON {
         }
     }
 
+    /*
+    Parses HttpResponse to object tripComposer.model.JSONResponse.
+    Gets countryList from JSONResponse and writes it to db.
+     */
     private void proceedResponse(HttpResponse response) throws ControllerException {
         try {
             String responseContent = EntityUtils.toString(response.getEntity());
@@ -103,6 +111,10 @@ public class HTTPAsJSON {
     }
 
 
+    /*
+    Received response has only cityName property at list of cities.
+    This method sets Country property to every city in the list.
+     */
     private void setCountry(List<Country> countryList){
         if(countryList != null){
             for(Country c : countryList){
